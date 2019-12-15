@@ -1,7 +1,45 @@
 ﻿@page "/"
+@inject HttpClient Http
 
-<h1>Hello, world!</h1>
+<h1>People</h1>
 
-Welcome to your new app.
+@if (people == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var person in people)
+            {
+                <tr>
+                    <td>@person.Name</td>
+                    <td>@person.Rating</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+    @code {
+private Person[] people;
+
+    protected override async Task OnInitializedAsync()
+    {
+        people = await Http.GetJsonAsync<Person[]>("sample-data/people.json");
+    }
+
+    public class Person
+    {
+        public string Name { get; set; }
+
+        public int Rating { get; set; }
+    }
+    }
