@@ -29,16 +29,16 @@ else
 }
 
     @code {
-private People[] people;
+private Person[] people;
 
     protected override async Task OnInitializedAsync()
     {
-        people = await Http.GetJsonAsync<People[]>("sample-data/people.json");
+        people = await Http.GetJsonAsync<Person[]>("sample-data/people.json");
     }
 
-    public class People
+    public class Person
     {
-        public DateTime Name { get; set; }
+        public string Name { get; set; }
 
         public int Rating { get; set; }
     }
