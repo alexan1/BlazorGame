@@ -1,9 +1,10 @@
 name: Build and Deploy
-on: [push]
+on: push
+    branches: 
+        - master
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest    
     steps:
     - uses: actions/checkout@v1
     - name: Setup .NET Core
