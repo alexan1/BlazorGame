@@ -1,21 +1,21 @@
 ﻿using Microsoft.AspNetCore.Components;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using static System.Net.Http.HttpClient;
-//using static System.Net.WebRequestMethods;
-using Microsoft.AspNetCore.Blazor;
+using System.Net.Http;
 
-namespace BlazorGame.Pages 
+
+namespace BlazorGame.Pages
 {
     public class PeopleBase : ComponentBase
     {
-        private Person[] people;
+
+        [Inject]
+        private HttpClient Http { get; set; }
+        public Person[] People { get; set; }
 
         protected override async Task OnInitializedAsync()
-        {
-            //people = await Http.GetJsonAsync<Person[]>("sample-data/people.json");
+        {     
+
+            People = await Http.GetJsonAsync<Person[]>("sample-data/people.json");
         }
 
         public class Person

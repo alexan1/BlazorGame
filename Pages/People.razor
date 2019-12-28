@@ -1,9 +1,9 @@
 ﻿@page "/"
-@inject HttpClient Http
+@inherits PeopleBase
 
 <h1>People</h1>
 
-@if (people == null)
+@if (People == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -17,7 +17,7 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var person in people)
+            @foreach (var person in People)
             {
                 <tr>
                     <td>@person.Name</td>
@@ -27,19 +27,3 @@ else
         </tbody>
     </table>
 }
-
-    @code {
-private Person[] people;
-
-    protected override async Task OnInitializedAsync()
-    {
-        people = await Http.GetJsonAsync<Person[]>("sample-data/people.json");
-    }
-
-    public class Person
-    {
-        public string Name { get; set; }
-
-        public int Rating { get; set; }
-    }
-    }
