@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using System.Threading.Tasks;
 using System.Net.Http;
-
+using System.Collections.ObjectModel;
 
 namespace BlazorGame.Pages
 {
@@ -10,12 +10,12 @@ namespace BlazorGame.Pages
 
         [Inject]
         private HttpClient Http { get; set; }
-        public Person[] People { get; set; }
+        public Collection<Person> People { get; set; }
 
         protected override async Task OnInitializedAsync()
         {     
 
-            People = await Http.GetJsonAsync<Person[]>("https://people3api.azurewebsites.net/api/People");
+            People = await Http.GetJsonAsync<Collection<Person>>("https://people3api.azurewebsites.net/api/People");
         }
 
         public class Person
