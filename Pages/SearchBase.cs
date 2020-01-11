@@ -39,9 +39,10 @@ namespace BlazorGame.Pages
             client.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36");
             var json = await client.GetStringAsync(url);            
             var results = JsonDocument.Parse(json);
-            var entities = results["results"]["bindings"];
+            //var entities = results["results"]["bindings"];
             //var count = entities.Count();
             var FoundPersons = new Collection<WikiPerson>();
+            /*
             foreach (JToken item in entities)
             {
 
@@ -95,6 +96,7 @@ namespace BlazorGame.Pages
                 };
                 FoundPersons.Add(person);
             }
+            */
 
             return FoundPersons;
         }
