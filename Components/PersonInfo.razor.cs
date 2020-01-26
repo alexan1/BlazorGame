@@ -3,7 +3,7 @@ using WikiDataLib;
 
 namespace BlazorGame.Components
 {
-    public partial class PersonShort : ComponentBase
+    public partial class PersonInfo : ComponentBase
     {
         [Parameter]
         public WikiPerson Person { get; set; }
