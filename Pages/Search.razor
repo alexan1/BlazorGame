@@ -1,9 +1,18 @@
 ﻿@page "/search"
-@inherits PeopleBase
-
 
 <h3>Find person in Wiki</h3>
 
-<input id="search" />
+<input @bind="SearchName" />
+<button @onclick ="SearchPeople">Search</button>
+
+
+@if (@People != null)
+
+
+
+            @foreach (var person in People)
+            {
+                <PersonShort Person=@person />
+            }         
 
 

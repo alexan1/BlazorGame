@@ -1,19 +1,18 @@
-﻿using Microsoft.AspNetCore.Components;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components;
 using System.Net.Http;
 using System.Collections.ObjectModel;
 
 namespace BlazorGame.Pages
 {
-    public class PeopleBase : ComponentBase
+    public partial class Index : ComponentBase
     {
-
         [Inject]
         private HttpClient Http { get; set; }
         protected Collection<Person> People { get; set; }
 
         protected override async Task OnInitializedAsync()
-        {     
+        {
 
             People = await Http.GetJsonAsync<Collection<Person>>("https://people3api.azurewebsites.net/api/People");
         }
