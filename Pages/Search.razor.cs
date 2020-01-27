@@ -10,19 +10,11 @@ namespace BlazorGame.Pages
         string SearchName;
 
         private Collection<WikiPerson> People { get; set; }
-
-
-
-        //protected override async Task OnInitializedAsync()
-        //{
-
-        //}
+              
 
         private async void SearchPeople()
-        {
-            //var name = e.Value.ToString();
-            People = await WikiData.WikiSearch(SearchName);
-
+        {            
+            People = await WikiData.WikiPeopleSearch(SearchName);
         }
     }
 }
