@@ -1,9 +1,18 @@
 ﻿@page "/search"
 
-<h3>Search</h3>
+<h3>Find person in Wiki</h3>
+
+<input @bind="SearchName" />
+<button @onclick ="SearchPeople">Search</button>
+
+
+@if (@People != null)
 
 
 
-@code {
+            @foreach (var person in People)
+            {
+                <PersonInfo Person=@person />
+            }         
 
-}
+
