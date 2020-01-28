@@ -12,9 +12,10 @@ namespace BlazorGame.Pages
         private Collection<WikiPerson> People { get; set; }
               
 
-        private async void SearchPeople()
+        private async Task SearchPeople()
         {            
             People = await WikiData.WikiPeopleSearch(SearchName);
+
         }
     }
 }
