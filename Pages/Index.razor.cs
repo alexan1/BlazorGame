@@ -1,28 +1,21 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
-using System.Net.Http;
+﻿using Microsoft.AspNetCore.Components;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using WikiDataLib;
 
 namespace BlazorGame.Pages
 {
     public partial class Index : ComponentBase
     {
-        [Inject]
-        private HttpClient Http { get; set; }
-        protected Collection<Person> People { get; set; }
+        string SearchName;
 
-        protected override async Task OnInitializedAsync()
-        {
+        private Collection<WikiPerson> People { get; set; }
+              
 
-            People = await Http.GetJsonAsync<Collection<Person>>("https://people3api.azurewebsites.net/api/People");
-        }
+        private async Task SearchPeople()
+        {            
+            People = await WikiData.WikiPeopleSearch(SearchName);
 
-        protected class Person
-        {
-            public int Id { get; set; }
-            public string Name { get; set; }
-
-            //public int Rate { get; set; }
         }
     }
 }

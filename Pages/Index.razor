@@ -1,28 +1,18 @@
 ﻿@page "/"
 
-<h1>People</h1>
+<h3>Find person in Wiki</h3>
 
-@if (People == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Id</th>
-            </tr>
-        </thead>
-        <tbody>
+<input @bind="SearchName" />
+<button @onclick ="SearchPeople">Search</button>
+
+
+@if (@People != null)
+
+
+
             @foreach (var person in People)
             {
-                <tr>
-                    <td>@person.Name</td>
-                    <td>@person.Id</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+                <PersonInfo Person=@person />
+            }         
+
+
