@@ -26,7 +26,7 @@ namespace BlazorGame.Pages
             {
                 var rating = await Http.GetJsonAsync<double>("https://people3api.azurewebsites.net/api/Ratings" + pers.Id);
 
-                PeopleR.Add(new PersonR() { pers, rating });
+                PeopleR.Add(new PersonR(pers, rating));
             }
         }
     }
