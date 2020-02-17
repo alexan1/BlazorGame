@@ -6,6 +6,6 @@ namespace BlazorGame.Components
     public partial class PersonInfo : ComponentBase
     {
         [Parameter]
-        public WikiPerson Person { get; set; }
+        public PersonR Person { get; set; }
     }
 }
