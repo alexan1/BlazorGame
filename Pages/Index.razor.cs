@@ -15,7 +15,7 @@ namespace BlazorGame.Pages
         string SearchName;
 
         private Collection<WikiPerson> People { get; set; }
-        private Collection<PersonR> PeopleR { get; set; }
+        private Collection<PersonR> PeopleR { get; set; } = new Collection<PersonR>();
 
 
         private async Task SearchPeople()
@@ -24,9 +24,9 @@ namespace BlazorGame.Pages
 
             foreach (var pers in People)
             {
-                var rating = await Http.GetJsonAsync<double>("https://people3api.azurewebsites.net/api/Ratings" + pers.Id);
-
-                PeopleR.Add(new PersonR(pers, rating));
+                //var rating = await Http.GetJsonAsync<double>("https://people3api.azurewebsites.net/api/Ratings" + pers.Id);
+                                
+                PeopleR.Add(new PersonR(pers, null));
             }
         }
     }

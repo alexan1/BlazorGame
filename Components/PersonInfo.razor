@@ -4,10 +4,11 @@
            
                 <tr>
                     <td>
-                        <img src="@Person.Image" height="100"/><br />
-                        <a href=@Person.Link> @Person.Name </a><br />
-                        @Person.Birthday - @Person.Death<br />
-                        <label> @Person.Description</label>
+                        <img src="@Person.Person.Image" height="100" /><br />
+                        <a href=@Person.Person.Link> @Person.Person.Name </a><br />
+                        @Person.Person.Birthday - @Person.Person.Death<br />
+                        <label> @Person.Person.Description</label><br />
+                        <label> Rating:  @Person.Rating</label>
                     </td>
                 </tr>
                 
