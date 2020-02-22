@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using WikiDataLib;
 using System.Net.Http;
 using System.Collections.Generic;
-using System;
 
 namespace BlazorGame.Pages
 {
@@ -25,14 +24,8 @@ namespace BlazorGame.Pages
 
             foreach (var pers in People)
             {
-                try
-                {
-                    var rating = await Http.GetJsonAsync<double>("https://people3api.azurewebsites.net/api/Ratings/" + pers.Id);
-                }
-                catch (Exception ex)
-                {
-                    Console.Write(ex);
-                }
+                //var rating = await Http.GetJsonAsync<double>("https://people3api.azurewebsites.net/api/Ratings" + pers.Id);
+                                
                 PeopleR.Add(new PersonR(pers, null));
             }
         }
