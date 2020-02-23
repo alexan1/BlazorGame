@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using WikiDataLib;
 using System.Net.Http;
 using System.Collections.Generic;
+using System;
 
 namespace BlazorGame.Pages
 {
@@ -21,12 +22,16 @@ namespace BlazorGame.Pages
         private async Task SearchPeople()
         {            
             People = await WikiData.WikiPeopleSearch(SearchName);
+            var linkbase = "https://people3api.azurewebsites.net/api/Ratings/";
 
             foreach (var pers in People)
-            {
-                //var rating = await Http.GetJsonAsync<double>("https://people3api.azurewebsites.net/api/Ratings" + pers.Id);
-                                
-                PeopleR.Add(new PersonR(pers, null));
+            {                
+                var link = linkbase + pers.Id.ToString();                
+                Console.WriteLine("link  " + link);
+                double? rating = await Http.GetJsonAsync<double>(link);
+                Console.WriteLine("rating  " + rating);
+
+                PeopleR.Add(new PersonR(pers, rating));
             }
         }
     }
