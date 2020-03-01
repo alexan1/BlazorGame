@@ -1,7 +1,6 @@
 ﻿
     <table class="table">
-        <tbody>          
-           
+        <tbody>              
                 <tr>
                     <td>
                         <img src="@Person.Person.Image" height="100" /><br />
@@ -9,10 +8,8 @@
                         @Person.Person.Birthday - @Person.Person.Death<br />
                         <label> @Person.Person.Description</label><br />
                         <label> Rating:  @Person.Rating</label><br />
-                        <RadzenRating Stars="10" Style="margin-bottom: 20px" Change="@((args) => Rate(args))"/>
+                        <RadzenRating Stars="10" Style="margin-bottom: 20px" Change="@((args) => RateAsync(args))"/>
                     </td>
                 </tr>
-                
-
         </tbody>
     </table>
