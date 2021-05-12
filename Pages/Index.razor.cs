@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using WikiDataLib;
 using System.Net.Http;
-using System.Collections.Generic;
 using System;
 
 namespace BlazorGame.Pages
@@ -13,7 +12,7 @@ namespace BlazorGame.Pages
     {
         [Inject]
         private HttpClient Http { get; set; }
-        string SearchName;
+        string _searchName;
 
         private Collection<WikiPerson> People { get; set; }
         private Collection<PersonR> PeopleR { get; set; } = new Collection<PersonR>();
@@ -21,8 +20,8 @@ namespace BlazorGame.Pages
 
         private async Task SearchPeople()
         {            
-            People = await WikiData.WikiPeopleSearch(SearchName);
-            var linkbase = "https://people3api.azurewebsites.net/api/Ratings/";
+            People = await WikiData.WikiPeopleSearch(_searchName);
+            const string linkbase = "https://people3api.azurewebsites.net/api/Ratings/";
 
             foreach (var pers in People)
             {                

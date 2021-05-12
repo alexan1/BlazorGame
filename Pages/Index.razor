@@ -2,17 +2,12 @@
 
 <h3>Find person in Wiki</h3>
 
-<input @bind="SearchName" />
-<button @onclick ="SearchPeople">Search</button>
-
+<input @bind="_searchName" />
+<button @onclick="SearchPeople">Search</button>
 
 @if (@People != null)
 
-
-
-            @foreach (var person in PeopleR)
+            {@foreach (var person in PeopleR)
             {
                 <PersonInfo Person=@person />
-            }         
-
-
+            }}      

@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace BlazorGame.Components
+﻿namespace BlazorGame.Components
 {
     public class Rating
     {
-        public int PersonID { get; set; }
-        public string UserID { get; set; }
+        public int PersonId { get; set; }
+        public string UserId { get; set; }
         public int Rate { get; set; }
     }
 }
