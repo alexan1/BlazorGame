@@ -15,7 +15,7 @@ namespace BlazorGame.Components
         {
             const string userId = "anonymous";
             var rating = new { PersonID = 1, UserID = userId, Rate = value };
-            const string link = "https://people3api.azurewebsites.net/api/Ratings/";
+            const string link = "https://peoplerating.azurewebsites.net/api/rating/";
 
             await Http.PostJsonAsync(link, rating);
 

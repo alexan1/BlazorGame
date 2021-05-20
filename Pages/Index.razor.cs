@@ -21,7 +21,7 @@ namespace BlazorGame.Pages
         private async Task SearchPeople()
         {            
             People = await WikiData.WikiPeopleSearch(_searchName);
-            const string linkbase = "https://people3api.azurewebsites.net/api/Ratings/";
+            const string linkbase = "https://peoplerating.azurewebsites.net/api/rating/";
 
             foreach (var pers in People)
             {                
