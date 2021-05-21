@@ -3,7 +3,6 @@
     public class Rating
     {
         public int PersonId { get; set; }
-        public string UserId { get; set; }
-        public int Rate { get; set; }
+        public double AverageRate { get; set; }
     }
 }

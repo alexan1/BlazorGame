@@ -21,16 +21,17 @@ namespace BlazorGame.Pages
         private async Task SearchPeople()
         {            
             People = await WikiData.WikiPeopleSearch(_searchName);
-            const string linkbase = "https://people3api.azurewebsites.net/api/Ratings/";
+            const string linkbase = "https://peoplerating.azurewebsites.net/api/rating/";
 
             foreach (var pers in People)
             {                
                 var link = linkbase + pers.Id.ToString();                
                 Console.WriteLine("link  " + link);
-                double? rating = await Http.GetJsonAsync<double>(link);
-                Console.WriteLine("rating  " + rating);
+                var rating = await Http.GetJsonAsync<Components.Rating>(link);
+                var averagerate = rating.AverageRate;
+                Console.WriteLine("rating  " + averagerate);
 
-                PeopleR.Add(new PersonR(pers, rating));
+                PeopleR.Add(new PersonR(pers, averagerate));
             }
         }
     }
