@@ -27,10 +27,11 @@ namespace BlazorGame.Pages
             {                
                 var link = linkbase + pers.Id.ToString();                
                 Console.WriteLine("link  " + link);
-                double? rating = await Http.GetJsonAsync<double>(link);
-                Console.WriteLine("rating  " + rating);
+                var rating = await Http.GetJsonAsync<Components.Rating>(link);
+                var averagerate = rating.AverageRate;
+                Console.WriteLine("rating  " + averagerate);
 
-                PeopleR.Add(new PersonR(pers, rating));
+                PeopleR.Add(new PersonR(pers, averagerate));
             }
         }
     }
