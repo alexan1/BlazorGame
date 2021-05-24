@@ -8,7 +8,7 @@
                         @Person.Person.Birthday - @Person.Person.Death<br />
                         <label> @Person.Person.Description</label><br />
                         <label> Rating:  @Person.Rating</label><br />
-                        <RadzenRating Stars="10" Style="margin-bottom: 20px" Change="@((args) => RateAsync(args))"/>
+                        <RadzenRating Stars="10" Style="margin-bottom: 20px" Change="@((args) => RateAsync(@Person.Person.Id, args))"/>
                     </td>
                 </tr>
         </tbody>
