@@ -11,10 +11,10 @@ namespace BlazorGame.Components
         [Inject]
         private HttpClient Http { get; set; }
 
-        public async System.Threading.Tasks.Task RateAsync(int persinId, int value)
+        public async System.Threading.Tasks.Task RateAsync(int personId, int value)
         {
             const string userId = "anonymous";
-            var rating = new { PersonID = persinId, UserID = userId, Rate = value };
+            var rating = new { PersonID = personId, UserID = userId, Rate = value };
             const string link = "https://peoplerating.azurewebsites.net/api/rating/";
 
             await Http.SendJsonAsync(HttpMethod.Put, link, rating);
